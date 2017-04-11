@@ -14,6 +14,7 @@ namespace kinect
     class KinectDriver
     {
         private KinectSensor sensor;
+        private Skeleton skeletonTracked;
 
         public void KinectInit()
         {
@@ -66,17 +67,81 @@ namespace kinect
 
             if (skeletons.Length != 0)
             {
+                //Console.WriteLine(skeletons.Length);
                 foreach (Skeleton skel in skeletons)
                 {
                     if (skel.TrackingState == SkeletonTrackingState.Tracked)
                     {
-                        Console.WriteLine("{X=" + skel.Joints[JointType.HandRight].Position.X +";Y=" + skel.Joints[JointType.HandRight].Position.X + ";Z=" + skel.Joints[JointType.HandRight].Position.X + "}");
-                    }
-                    else if (skel.TrackingState == SkeletonTrackingState.PositionOnly)
-                    {
+                        skeletonTracked = skel;
                     }
                 }
             }
         }
+
+        #region getter
+
+        float getXMainD()
+        {
+            return getJoint(JointType.HandRight, 'x');
+        }
+
+        float getYMainD()
+        {
+            return getJoint(JointType.HandRight, 'y');
+        }
+
+        float getZMainD()
+        {
+            return getJoint(JointType.HandRight, 'z');
+        }
+
+        float getXMainG()
+        {
+            return getJoint(JointType.HandLeft, 'x');
+        }
+
+        float getYMainG()
+        {
+            return getJoint(JointType.HandLeft, 'y');
+        }
+
+        float getZMainG()
+        {
+            return getJoint(JointType.HandLeft, 'z');
+        }
+
+        float getXTete()
+        {
+            return getJoint(JointType.Head, 'x');
+        }
+
+        float getYTete()
+        {
+            return getJoint(JointType.Head, 'y');
+        }
+
+        float getZTete()
+        {
+            return getJoint(JointType.Head, 'z');
+        }
+
+        float getJoint(JointType jointType, char coord)
+        {
+            Joint joint = skeletonTracked.Joints[jointType];
+
+            if (joint.TrackingState == JointTrackingState.Tracked &&
+                joint.TrackingState != JointTrackingState.Inferred)
+            {
+                switch (coord)
+                {
+                    case ('x'): return joint.Position.X; break;
+                    case ('y'): return joint.Position.Y; break;
+                    case ('z'): return joint.Position.Z; break;
+                }
+            }
+            return -10000;
+        }
+
+        #endregion
     }
 }
