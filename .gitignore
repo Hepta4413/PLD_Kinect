@@ -3,8 +3,11 @@
 
 *.cache
 *.exe
-kinect/obj
-kinect/bin
-UnityPLDKinect/Library
-*/.vs
-UnityPLDKinect/Temp
+kinect/obj/
+kinect/bin/
+kinect/kinect/bin/
+kinect/kinect/obj/
+UnityPLDKinect/Library/
+*/.vs/
+UnityPLDKinect/Temp/
+.vs/
