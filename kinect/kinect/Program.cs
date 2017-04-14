@@ -14,6 +14,7 @@ namespace kinect
 
         static void Main(string[] args)
         {
+            Serveur.ServerThread();
             driver = new KinectDriver();
             driver.KinectInit();
             Console.Read();

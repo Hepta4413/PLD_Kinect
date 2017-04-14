@@ -9,7 +9,7 @@ namespace kinect
     using System.IO;
     using System.Windows;
     using Microsoft.Kinect;
-
+    using System.Text.RegularExpressions;
 
     class KinectDriver
     {
@@ -31,6 +31,7 @@ namespace kinect
             {
                 // Turn on the skeleton stream to receive skeleton frames
                 this.sensor.SkeletonStream.Enable();
+                //this.sensor.ColorStream.CameraSettings.FrameInterval = 15;
 
                 // Add an event handler to be called whenever there is new color frame data
                 this.sensor.SkeletonFrameReady += this.SensorSkeletonFrameReady;
@@ -50,6 +51,7 @@ namespace kinect
             {
                 Console.WriteLine("Pas de Kinect trouvée");
             }
+
         }
 
         private void SensorSkeletonFrameReady(object sender, SkeletonFrameReadyEventArgs e)
@@ -73,65 +75,12 @@ namespace kinect
                     if (skel.TrackingState == SkeletonTrackingState.Tracked)
                     {
                         skeletonTracked = skel;
+                        String tmp = writeFrame();
+                        Console.WriteLine(tmp);
+                        Serveur.WriteInPipe(tmp);
                     }
                 }
             }
-        }
-
-        /*
-        private Point SkeletonPointToScreen(SkeletonPoint skelpoint)
-        {
-            // Convert point to depth space.  
-            // We are not using depth directly, but we do want the points in our 640x480 output resolution.
-            DepthImagePoint depthPoint = this.sensor.CoordinateMapper.MapSkeletonPointToDepthPoint(skelpoint, DepthImageFormat.Resolution640x480Fps30);
-            return new Point(depthPoint.X, depthPoint.Y);
-        }*/
-
-        #region getter
-
-        float getXMainD()
-        {
-            return getJoint(JointType.HandRight, 'x');
-        }
-
-        float getYMainD()
-        {
-            return getJoint(JointType.HandRight, 'y');
-        }
-
-        float getZMainD()
-        {
-            return getJoint(JointType.HandRight, 'z');
-        }
-
-        float getXMainG()
-        {
-            return getJoint(JointType.HandLeft, 'x');
-        }
-
-        float getYMainG()
-        {
-            return getJoint(JointType.HandLeft, 'y');
-        }
-
-        float getZMainG()
-        {
-            return getJoint(JointType.HandLeft, 'z');
-        }
-
-        float getXTete()
-        {
-            return getJoint(JointType.Head, 'x');
-        }
-
-        float getYTete()
-        {
-            return getJoint(JointType.Head, 'y');
-        }
-
-        float getZTete()
-        {
-            return getJoint(JointType.Head, 'z');
         }
 
         float getJoint(JointType jointType, char coord)
@@ -143,14 +92,28 @@ namespace kinect
             {
                 switch (coord)
                 {
-                    case ('x'): return joint.Position.X; break;
-                    case ('y'): return joint.Position.Y; break;
-                    case ('z'): return joint.Position.Z; break;
+                    case ('x'): return sensor.CoordinateMapper.MapSkeletonPointToDepthPoint(joint.Position, DepthImageFormat.Resolution640x480Fps30).X; break;
+                    case ('y'): return sensor.CoordinateMapper.MapSkeletonPointToDepthPoint(joint.Position, DepthImageFormat.Resolution640x480Fps30).Y; break;
+                    case ('z'): return sensor.CoordinateMapper.MapSkeletonPointToDepthPoint(joint.Position, DepthImageFormat.Resolution640x480Fps30).Depth; break;
                 }
             }
             return -10000;
         }
 
-        #endregion
+        public String writeFrame()
+        {
+            string result;
+            result = "MDX" + getJoint(JointType.HandRight, 'x')+' ';
+            result += "MDY" + getJoint(JointType.HandRight, 'y') + ' ';
+            result += "MDZ" + getJoint(JointType.HandRight, 'z') + ' ';
+            result += "MGX" + getJoint(JointType.HandLeft, 'x') + ' ';
+            result += "MGY" + getJoint(JointType.HandLeft, 'y') + ' ';
+            result += "MGZ" + getJoint(JointType.HandLeft, 'z') + ' ';
+            result += "TEX" + getJoint(JointType.Head, 'x') + ' ';
+            result += "TEY" + getJoint(JointType.Head, 'y') + ' ';
+            result += "TEZ" + getJoint(JointType.Head, 'z') + ' ';
+
+            return result;
+        }      
     }
 }

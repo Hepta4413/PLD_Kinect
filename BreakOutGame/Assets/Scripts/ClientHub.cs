@@ -2,15 +2,18 @@
 using System;
 using System.IO;
 using System.IO.Pipes;
+using UnityEngine.UI;
 
-
-public class NewBehaviourScript : MonoBehaviour {
+public class ClientHub : MonoBehaviour {
 
     // Use this for initialization
     NamedPipeClientStream client;
     StreamReader reader;
+    public Text Xposition;
+    bool update =true;
 
-    void Start () {
+    void Awake () {
+        DontDestroyOnLoad(this);
         client = new NamedPipeClientStream(".", "testpipe", PipeDirection.InOut);
         client.Connect();
         reader = new StreamReader(client);
@@ -18,7 +21,24 @@ public class NewBehaviourScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        readFrame(reader.ReadLine());
+        if (update)
+        {
+            update = false;
+
+            string msg = reader.ReadLine();
+            Xposition.text = msg;
+            Console.WriteLine(msg);
+            if (msg != null)
+            {
+                readFrame(msg);
+                client.Flush();
+            } 
+        }
+        else
+        {
+            update = true;
+        }
+        
 	}
 
     public void readFrame(String frame)
