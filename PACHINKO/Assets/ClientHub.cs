@@ -26,7 +26,6 @@ public class ClientHub : MonoBehaviour {
             update = false;
 
             string msg = reader.ReadLine();
-            Xposition.text = msg;
             Console.WriteLine(msg);
             if (msg != null)
             {
