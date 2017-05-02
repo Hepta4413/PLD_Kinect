@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
 
     void GameReset()
     {
+
         Time.timeScale = 1f;
         //Application.LoadLevel(Application.loadedLevel);
         SceneManager.LoadSceneAsync("mainScene");

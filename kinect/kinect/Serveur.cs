@@ -57,5 +57,37 @@ namespace kinect
         {
             writer.WriteLine(msg);
         }
+
+        public static void WriteInFile(string msg)
+        {
+            //test avec des fichiers partagés
+            FileStream fs = null;
+            try
+            {
+               fs = File.Open(@"E:\INSA\4IF\PLD_SMART\BreakOutGame\Coord.txt", FileMode.Open, FileAccess.ReadWrite, FileShare.Read);
+                
+                // discard the contents of the file by setting the length to 0
+                fs.SetLength(0);
+                using (StreamWriter writer = new StreamWriter(fs))
+                {
+                    writer.Write(msg);
+                }
+                
+            }
+
+            catch (IOException)
+            {
+                
+                //Thread.Sleep(50);
+            }
+            finally
+            {
+                if (fs != null)
+                {
+                    fs.Dispose();
+                }
+            }
+            
+        }
     }
 }

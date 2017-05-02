@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour {
 
-    public float initialVelocity = 100f;
+    public float initialVelocity = 1f;
 
     private Rigidbody rb;
     private bool inMovement = false;
@@ -15,7 +15,7 @@ public class Ball : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if (Input.GetButtonDown("Fire1") && inMovement == false)
         {
             transform.parent = null;

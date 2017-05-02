@@ -15,6 +15,7 @@ namespace kinect
     {
         private KinectSensor sensor;
         private Skeleton skeletonTracked;
+        private bool envoi = true;
 
         public void KinectInit()
         {
@@ -77,7 +78,9 @@ namespace kinect
                         skeletonTracked = skel;
                         String tmp = writeFrame();
                         Console.WriteLine(tmp);
-                        Serveur.WriteInPipe(tmp);
+                        //Serveur.WriteInPipe(tmp);
+                        Serveur.WriteInFile(tmp);
+
                     }
                 }
             }
@@ -104,14 +107,14 @@ namespace kinect
         {
             string result;
             result = "MDX" + getJoint(JointType.HandRight, 'x')+' ';
-            result += "MDY" + getJoint(JointType.HandRight, 'y') + ' ';
+            /*result += "MDY" + getJoint(JointType.HandRight, 'y') + ' ';
             result += "MDZ" + getJoint(JointType.HandRight, 'z') + ' ';
             result += "MGX" + getJoint(JointType.HandLeft, 'x') + ' ';
             result += "MGY" + getJoint(JointType.HandLeft, 'y') + ' ';
             result += "MGZ" + getJoint(JointType.HandLeft, 'z') + ' ';
             result += "TEX" + getJoint(JointType.Head, 'x') + ' ';
             result += "TEY" + getJoint(JointType.Head, 'y') + ' ';
-            result += "TEZ" + getJoint(JointType.Head, 'z') + ' ';
+            result += "TEZ" + getJoint(JointType.Head, 'z') + ' ';*/
 
             return result;
         }      
