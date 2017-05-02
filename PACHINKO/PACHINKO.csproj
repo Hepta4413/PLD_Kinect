@@ -79,6 +79,7 @@
     <Compile Include="Assets\KinectData.cs" />
     <Compile Include="Assets\Paddle.cs" />
     <Compile Include="Assets\SphereTraj.cs" />
+    <Compile Include="Assets\WinOnContact.cs" />
     <Compile Include="Assets\move.cs" />
     <Compile Include="Assets\respawn.cs" />
   </ItemGroup>
