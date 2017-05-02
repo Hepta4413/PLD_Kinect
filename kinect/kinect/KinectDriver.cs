@@ -15,6 +15,8 @@ namespace kinect
     {
         private KinectSensor sensor;
         private Skeleton skeletonTracked;
+        private int noSkeleton = 0;
+        private int nbSkeletons = 0;
 
         public void KinectInit()
         {
@@ -78,6 +80,13 @@ namespace kinect
                         String tmp = writeFrame();
                         Console.WriteLine(tmp);
                         Serveur.WriteInPipe(tmp);
+
+                        if(skel.TrackingId != noSkeleton)
+                        {
+                            noSkeleton = skel.TrackingId;
+                            nbSkeletons++;
+                        }
+
                     }
                 }
             }
