@@ -6,7 +6,8 @@ using System;
 public class DestroyOnContact : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
-		
+		Vector3 pos = new Vector3(1, 6, -2);
+		Instantiate((Resources.Load("Sphere")) as GameObject, pos, Quaternion.identity);
 	}
 	
 	// Update is called once per frame
