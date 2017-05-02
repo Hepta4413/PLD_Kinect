@@ -6,3 +6,11 @@ C:\Users\Ludovic\Documents\cours\4IF\PLD_Kinect\kinect\kinect\bin\Debug\Microsof
 C:\Users\Ludovic\Documents\cours\4IF\PLD_Kinect\kinect\kinect\obj\Debug\kinect.exe
 C:\Users\Ludovic\Documents\cours\4IF\PLD_Kinect\kinect\kinect\obj\Debug\kinect.pdb
 C:\Users\Ludovic\Documents\cours\4IF\PLD_Kinect\kinect\kinect\obj\Debug\kinect.csprojResolveAssemblyReference.cache
+C:\Users\Anthony\Documents\PLD_Kinect\kinect\kinect\bin\Debug\kinect.exe.config
+C:\Users\Anthony\Documents\PLD_Kinect\kinect\kinect\bin\Debug\kinect.exe
+C:\Users\Anthony\Documents\PLD_Kinect\kinect\kinect\bin\Debug\kinect.pdb
+C:\Users\Anthony\Documents\PLD_Kinect\kinect\kinect\bin\Debug\Microsoft.Kinect.dll
+C:\Users\Anthony\Documents\PLD_Kinect\kinect\kinect\bin\Debug\Microsoft.Kinect.xml
+C:\Users\Anthony\Documents\PLD_Kinect\kinect\kinect\obj\Debug\kinect.csprojResolveAssemblyReference.cache
+C:\Users\Anthony\Documents\PLD_Kinect\kinect\kinect\obj\Debug\kinect.exe
+C:\Users\Anthony\Documents\PLD_Kinect\kinect\kinect\obj\Debug\kinect.pdb
