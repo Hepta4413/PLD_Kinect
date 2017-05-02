@@ -1,7 +1,7 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreakOutGame", "BreakOutGame.csproj", "{543ED844-3B23-03B9-A72E-3ED7A4CB5E02}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreakOutGame", "Assembly-CSharp.csproj", "{47E9C1A7-5C7B-A8B4-5189-35F712B6D23E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,12 +9,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{543ED844-3B23-03B9-A72E-3ED7A4CB5E02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{543ED844-3B23-03B9-A72E-3ED7A4CB5E02}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{543ED844-3B23-03B9-A72E-3ED7A4CB5E02}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{543ED844-3B23-03B9-A72E-3ED7A4CB5E02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47E9C1A7-5C7B-A8B4-5189-35F712B6D23E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47E9C1A7-5C7B-A8B4-5189-35F712B6D23E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47E9C1A7-5C7B-A8B4-5189-35F712B6D23E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47E9C1A7-5C7B-A8B4-5189-35F712B6D23E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
