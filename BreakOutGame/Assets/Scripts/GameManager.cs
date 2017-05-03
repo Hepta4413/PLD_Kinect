@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject bricksPrefab;
     public GameObject paddle;
     public GameObject deathParticles;
+    public Text PlayingHand;
     public static GameManager instance = null;
 
     private GameObject clonePaddle;
@@ -63,13 +64,22 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         //Application.LoadLevel(Application.loadedLevel);
         SceneManager.LoadSceneAsync("mainScene");
+        Paddle.mainJoueuse = MainPrincipale.Droite;
+        /*if (Paddle.mainJoueuse == MainPrincipale.Gauche)
+        {
+            PlayingHand.text = "Main directrice : Gauche";
+        }
+        else
+        {
+            PlayingHand.text = "Main directrice : Droite";
+        }*/
 
     }
 
     public void loseLife()
     {
         lives--;
-        livesText.text = "Lives : " + lives;
+        livesText.text = "Vies : " + lives;
         Instantiate(deathParticles, clonePaddle.transform.position, Quaternion.identity);
         Destroy(clonePaddle);
         Invoke("SetupPaddle", resetDelay);
@@ -78,7 +88,7 @@ public class GameManager : MonoBehaviour
 
     void SetupPaddle()
     {
-        clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
+        clonePaddle = Instantiate(paddle, new Vector3(0, -9.5f, 0), Quaternion.identity) as GameObject;
     }
 
     public void DestroyBrick()

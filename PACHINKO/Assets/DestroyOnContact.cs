@@ -6,7 +6,7 @@ using System;
 public class DestroyOnContact : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
-		Vector3 pos = new Vector3(1, 6, -2);
+		Vector3 pos = new Vector3(1, 4, -2);
 		Instantiate((Resources.Load("Sphere")) as GameObject, pos, Quaternion.identity);
 	}
 	
@@ -18,8 +18,8 @@ public class DestroyOnContact : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
         System.Random random = new System.Random();
-        int randomNumber = random.Next(-1, 3);
-        Vector3 pos = new Vector3(randomNumber, 6, -2);/*
+        int randomNumber = random.Next(-1, 4);
+        Vector3 pos = new Vector3(randomNumber, 4, -2);/*
         other.gameObject.transform.position.x = randomNumber;
         other.gameObject.transform.position.y = 6;
         other.gameObject.transform.position.z = -2;*/
