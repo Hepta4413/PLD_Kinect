@@ -64,7 +64,7 @@ namespace kinect
             FileStream fs = null;
             try
             {
-               fs = File.Open(@"E:\INSA\4IF\PLD_SMART\BreakOutGame\Coord.txt", FileMode.Open, FileAccess.ReadWrite, FileShare.Read);
+               fs = File.Open(@"E:\INSA\4IF\PLD_SMART\BreakOutGame\Coord.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Read);
                 
                 // discard the contents of the file by setting the length to 0
                 fs.SetLength(0);
