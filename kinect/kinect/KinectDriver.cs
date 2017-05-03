@@ -99,6 +99,7 @@ namespace kinect
                             Console.WriteLine(tmp);
                             //Serveur.WriteInPipe(tmp);
                             Serveur.WriteInFile(tmp);
+                            break;
                         }
                     }
                 }
