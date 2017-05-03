@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace lancement_Fenetre
          float teteX;
          float teteY;
          float teteZ;
+         bool jeu = false;
 
         public Form1()
         {
@@ -46,16 +48,34 @@ namespace lancement_Fenetre
                     msg = reader.ReadLine();
                 }
                 fs.Dispose();
+                fs.Close();
                 if (msg != null)
                 {
                     readFrame(msg);
-                    if (mainDY != -10000 && teteY != -10000 && mainDY < teteY)
+                    if (!jeu && mainDY != -10000 && teteY != -10000 && mainDY < teteY)
                     {
-                        System.Diagnostics.Process.Start(@"..\..\..\..\BreakOutGame");
+                        jeu = true;
+                        var psi = new ProcessStartInfo
+                        {
+                            FileName = @"..\..\..\..\BreakOutGame\BreakOutGame",
+                            UseShellExecute = false,
+                            WorkingDirectory = @"..\..\..\..\BreakOutGame"
+                        };
+                        System.Diagnostics.Process.Start(psi);
+                        Application.Exit();
                     }
-                    else if (mainGY != -10000 && teteY != -10000 && mainGY < teteY)
+                    else if (!jeu && mainGY != -10000 && teteY != -10000 && mainGY < teteY)
                     {
-                        System.Diagnostics.Process.Start(@"..\..\..\..\PACHINKO");
+                        jeu = true;
+                        var psi = new ProcessStartInfo
+                        {
+                            FileName = @"..\..\..\..\PACHINKO\PACHINKO",
+                            UseShellExecute = false,
+                            WorkingDirectory = @"..\..\..\..\PACHINKO"
+                        };
+                        System.Diagnostics.Process.Start(psi);
+                        System.Diagnostics.Process.Start(@"..\..\..\..\PACHINKO\PACHINKO");
+                        Application.Exit();
                     }
                 }
             }
@@ -108,6 +128,16 @@ namespace lancement_Fenetre
             //}
 
             return null;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

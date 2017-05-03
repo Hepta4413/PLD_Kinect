@@ -14,13 +14,13 @@ public class Paddle : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate () {
-        
-       
+
+
         //float xPos = transform.position.x + (Input.GetAxis("Horizontal") * speed);
         if (KinectData.mainDX != -10000)
         {
 
-            float xPos = (((KinectData.mainDX -250) / 65.0f));
+            float xPos = (((KinectData.mainDX - 250) / 65.0f));
             Debug.Log(xPos);
             //float xPos = KinectData.mainDX;
 
@@ -32,7 +32,6 @@ public class Paddle : MonoBehaviour {
             }
             //position = new Vector3(Mathf.Clamp(xPos, -6.1f, 6.1f), -11f, 0);
             //transform.position = position;
-
         }
         else
         {

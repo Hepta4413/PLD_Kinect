@@ -43,7 +43,7 @@ public class ClientHub : MonoBehaviour {
     void GetPosByFile()
     {
         string msg;
-        var fs = WaitForFile(@"E:\INSA\4IF\PLD_SMART\BreakOutGame\Coord.txt");
+        var fs = WaitForFile(@"..\Coord.txt");
         if (fs != null)
         {
             using (StreamReader reader = new StreamReader(fs))
