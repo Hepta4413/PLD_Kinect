@@ -17,3 +17,4 @@ C:\Users\Anthony\Documents\PLD_Kinect\kinect\kinect\obj\Debug\kinect.pdb
 C:\Users\Ludovic\Desktop\PLD_Kinect\kinect\kinect\bin\Debug\kinect.exe.config
 C:\Users\Ludovic\Desktop\PLD_Kinect\kinect\kinect\obj\Debug\kinect.exe
 C:\Users\Ludovic\Desktop\PLD_Kinect\kinect\kinect\obj\Debug\kinect.pdb
+C:\Users\Ludovic\Desktop\PLD_Kinect\kinect\kinect\obj\Debug\kinect.csprojResolveAssemblyReference.cache
