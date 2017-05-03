@@ -1,11 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System;
 
 public class DestroyOnContact : MonoBehaviour {
-	// Use this for initialization
-	void Start () {
+
+    public Text lifesText;
+    public Text scoreText;
+    public GameObject gameOver;
+    public float resetDelay = 1f;
+    public int lifes = 10;
+
+    // Use this for initialization
+    void Start () {
+        UpdateLifes();
         System.Random random = new System.Random();
         int randomNumber = random.Next(-1, 4);
         Vector3 pos = new Vector3(randomNumber, 6, -0.05f);
@@ -17,6 +27,17 @@ public class DestroyOnContact : MonoBehaviour {
 		
 	}
 
+    public void RemoveLife(int newScoreValue)
+    {
+        lifes -= newScoreValue;
+        UpdateLifes();
+    }
+
+    void UpdateLifes()
+    {
+        lifesText.text = "Vies : " + lifes;
+    }
+
     void OnTriggerEnter(Collider other)
     {
         System.Random random = new System.Random();
@@ -26,14 +47,26 @@ public class DestroyOnContact : MonoBehaviour {
         other.gameObject.transform.position.y = 6;
         other.gameObject.transform.position.z = -2;*/
         Destroy(other.gameObject);
-        //GameObject.ge
-        //GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        //other.transform.position = new Vector3(randomNumber, 6, -2);
-        //other.transform.
+        RemoveLife(1);
 
-        Instantiate((Resources.Load("Botella")) as GameObject, pos, Quaternion.identity);
-        //other.gameObject.transform.Translate(Vector3.left * 10);
-       
+        if(lifes == 0)
+        {
+            scoreText.text = "Score : 0";
+            gameOver.SetActive(true);
+            Time.timeScale = 0.25f;
+            Invoke("GameReset", resetDelay);
+        }
+        else
+        {
+            Instantiate((Resources.Load("Botella")) as GameObject, pos, Quaternion.identity);
+        }
     }
-    
+
+    void GameReset()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadSceneAsync("pachinko1");
+    }
+
+
 }

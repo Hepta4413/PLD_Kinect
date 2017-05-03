@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2015
+# Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreakOutGame", "BreakOutGame.csproj", "{543ED844-3B23-03B9-A72E-3ED7A4CB5E02}"
 EndProject
 Global
