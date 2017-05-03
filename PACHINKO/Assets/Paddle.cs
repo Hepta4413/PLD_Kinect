@@ -20,19 +20,22 @@ public class Paddle : MonoBehaviour {
         if (KinectData.mainDX != -10000)
         {
 
-            float xPos = ((KinectData.mainDX / 80f)-1.3f);
+            float xPos = (((KinectData.mainDX -250) / 65.0f));
             Debug.Log(xPos);
             //float xPos = KinectData.mainDX;
 
             //if (Math.Abs(xPos - oldX) < 30000000)
-            {
                 //transform.position += Vector3.left * speed * Time.deltaTime;
-                transform.position=new Vector3(Mathf.Clamp(xPos, (leftStreetLamp.transform.position.x - leftStreetLamp.transform.localScale.x), (rightStreetLamp.transform.position.x + rightStreetLamp.transform.localScale.x)),0, -1.93f);
+                transform.position=new Vector3(Mathf.Clamp(xPos, (leftStreetLamp.transform.position.x - leftStreetLamp.transform.localScale.x*1.3f), (rightStreetLamp.transform.position.x + rightStreetLamp.transform.localScale.x*1.3f)),0, 0);
                 oldX = xPos;
             }
             //position = new Vector3(Mathf.Clamp(xPos, -6.1f, 6.1f), -11f, 0);
             //transform.position = position;
-            
+
+        }
+        else
+        {
+
         }
        
 	}

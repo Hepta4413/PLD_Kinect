@@ -12,6 +12,7 @@ public class ClientHub : MonoBehaviour {
     StreamReader reader;
     //public Text Xposition;
     bool update =true;
+    private String pathString = "../Coord.txt";
 
     void Awake () {
         DontDestroyOnLoad(this);
@@ -44,7 +45,8 @@ public class ClientHub : MonoBehaviour {
     void GetPosByFile()
     {
         string msg;
-        var fs = WaitForFile(@"C:\Users\Anthony\Documents\PLD_Kinect\PACHINKO\Coord.txt");
+
+        var fs = WaitForFile(pathString);
         if (fs != null)
         {
             using (StreamReader reader = new StreamReader(fs))
