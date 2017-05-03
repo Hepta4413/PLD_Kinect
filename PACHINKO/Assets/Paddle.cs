@@ -31,8 +31,6 @@ public class Paddle : MonoBehaviour {
             }
             //position = new Vector3(Mathf.Clamp(xPos, -6.1f, 6.1f), -11f, 0);
             //transform.position = position;
-
-        }
         else
         {
 
