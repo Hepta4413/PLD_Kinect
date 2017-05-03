@@ -20,8 +20,7 @@ public class ClientHub : MonoBehaviour {
         reader = new StreamReader(client);*/
         //reader.BaseStream.ReadTimeout = 20;
         InvokeRepeating("GetPosByFile", 0, 0.05f);
-        //Thread workerThread = new Thread(new ThreadStart(DoWork));
-        // workerThread.Start();
+        //InvokeRepeating("GetPos", 0, 0.05f);
     }
 
     /* public void DoWork()
@@ -53,7 +52,11 @@ public class ClientHub : MonoBehaviour {
             }
             Xposition.text = msg;
             fs.Dispose();
-            readFrame(msg);
+            if (msg != null)
+            {
+                readFrame(msg);
+            }
+            
         }
         
 
@@ -113,7 +116,7 @@ public class ClientHub : MonoBehaviour {
         {
             if (jeton.Length > 3)
             {
-                string token = jeton.Substring(0, 3);
+                string token = jeton.Substring(0,3);
                 float valeur = float.Parse(jeton.Substring(3));
                 switch (token)
                 {

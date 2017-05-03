@@ -128,11 +128,11 @@ namespace kinect
             string result;
             result = "MDX" + getJoint(JointType.HandRight, 'x')+' ';
             result += "MDY" + getJoint(JointType.HandRight, 'y') + ' ';
-            /*result += "MDZ" + getJoint(JointType.HandRight, 'z') + ' ';
+            //result += "MDZ" + getJoint(JointType.HandRight, 'z') + ' ';
             result += "MGX" + getJoint(JointType.HandLeft, 'x') + ' ';
             result += "MGY" + getJoint(JointType.HandLeft, 'y') + ' ';
-            result += "MGZ" + getJoint(JointType.HandLeft, 'z') + ' ';
-            result += "TEX" + getJoint(JointType.Head, 'x') + ' ';*/
+            //result += "MGZ" + getJoint(JointType.HandLeft, 'z') + ' ';
+            //result += "TEX" + getJoint(JointType.Head, 'x') + ' ';
             result += "TEY" + getJoint(JointType.Head, 'y') + ' ';
             //result += "TEZ" + getJoint(JointType.Head, 'z') + ' ';
 

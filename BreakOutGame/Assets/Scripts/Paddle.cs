@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
+public enum MainPrincipale { Droite, Gauche };
+
 public class Paddle : MonoBehaviour {
 
     public float speed = 0.07f;
@@ -10,20 +12,29 @@ public class Paddle : MonoBehaviour {
     private Vector3 position = new Vector3(0, -9.5f, 0);
 
     public float oldX = -9.5f;
-    public float oldXInGame = -9.5f;
-    public float XInGame;
 
-    public float X;
     public bool firstFrame = true;
     public float xPos;
 
+    public float xMain;
 
-	// Update is called once per frame
-	void Update () {
+    public static MainPrincipale mainJoueuse = MainPrincipale.Droite;
+
+    // Update is called once per frame
+    void Update () {
         //float xPos = transform.position.x + (Input.GetAxis("Horizontal") * speed);
-        if (KinectData.mainDX != -10000)
+        if (mainJoueuse == MainPrincipale.Droite)
         {
-            xPos = ((KinectData.mainDX / 40)*2) - 15f;
+            xMain = KinectData.mainDX;
+        }
+        else
+        {
+            xMain = KinectData.mainGX;
+        }
+
+        if (xMain != -10000)
+        {
+            xPos = ((xMain / 40)*2) - 15f;
 
             if(Math.Abs(xPos-oldX) < 30)
             {
