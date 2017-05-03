@@ -12,6 +12,7 @@ namespace kinect
     static class Serveur
     {
         private static StreamWriter writer;
+        private static String pathString = "../../../../Coord.txt";
         public static void ServerThread()
         {
             NamedPipeServerStream pipeServer =
@@ -64,13 +65,12 @@ namespace kinect
             FileStream fs = null;
             try
             {
-<<<<<<< Updated upstream
-               fs = File.Open(@"E:\INSA\4IF\PLD_SMART\BreakOutGame\Coord.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Read);
-                
-=======
-                fs = File.Open(@"C:\Users\Anthony\Documents\PLD_Kinect\PACHINKO\Coord.txt", FileMode.Open, FileAccess.ReadWrite, FileShare.Read);
+                if (!System.IO.File.Exists(pathString))
+                {
+                    System.IO.File.Create(pathString);
+                }
+                fs = File.Open(pathString, FileMode.Open, FileAccess.ReadWrite, FileShare.Read);
 
->>>>>>> Stashed changes
                 // discard the contents of the file by setting the length to 0
                 fs.SetLength(0);
                 using (StreamWriter writer = new StreamWriter(fs))
