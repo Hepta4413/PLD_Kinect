@@ -11,9 +11,9 @@ namespace Lancement_PLD_Smart
     {
         static void Main(string[] args)
         {
-            System.Diagnostics.Process.Start(Environment.CurrentDirectory + @"\kinect");
+            System.Diagnostics.Process.Start(@"..\..\..\..\kinect\kinect\bin\Debug\kinect");
             System.Threading.Thread.Sleep(2000);
-            System.Diagnostics.Process.Start(Environment.CurrentDirectory + @"\BreakOutGame");
+            System.Diagnostics.Process.Start(@"..\..\..\..\BreakOutGame");
         }
     }
 }
