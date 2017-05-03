@@ -64,20 +64,25 @@ namespace kinect
             FileStream fs = null;
             try
             {
+<<<<<<< Updated upstream
                fs = File.Open(@"E:\INSA\4IF\PLD_SMART\BreakOutGame\Coord.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Read);
                 
+=======
+                fs = File.Open(@"C:\Users\Anthony\Documents\PLD_Kinect\PACHINKO\Coord.txt", FileMode.Open, FileAccess.ReadWrite, FileShare.Read);
+
+>>>>>>> Stashed changes
                 // discard the contents of the file by setting the length to 0
                 fs.SetLength(0);
                 using (StreamWriter writer = new StreamWriter(fs))
                 {
                     writer.Write(msg);
                 }
-                
+
             }
 
             catch (IOException)
             {
-                
+
                 //Thread.Sleep(50);
             }
             finally
@@ -87,7 +92,7 @@ namespace kinect
                     fs.Dispose();
                 }
             }
-            
+
         }
     }
 }
