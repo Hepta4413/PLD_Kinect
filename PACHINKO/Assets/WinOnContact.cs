@@ -32,8 +32,9 @@ public class WinOnContact : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
         System.Random random = new System.Random();
-        int randomNumber = random.Next(-1, 3);
-        Vector3 pos = new Vector3(randomNumber, 6, -0.05f);
+        int randomNumber = random.Next(-100, 100);
+        float randomNumberFloat = (float) randomNumber*3 / 100;
+        Vector3 pos = new Vector3(randomNumberFloat, 6, -0.05f);
         Destroy(other.gameObject);
 
         AddScore(1);

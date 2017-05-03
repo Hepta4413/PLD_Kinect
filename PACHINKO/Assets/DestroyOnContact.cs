@@ -17,8 +17,9 @@ public class DestroyOnContact : MonoBehaviour {
     void Start () {
         UpdateLifes();
         System.Random random = new System.Random();
-        int randomNumber = random.Next(-1, 4);
-        Vector3 pos = new Vector3(randomNumber, 6, -0.05f);
+        int randomNumber = random.Next(-100, 100);
+        float randomNumberFloat = (float)randomNumber * 3 / 100;
+        Vector3 pos = new Vector3(randomNumberFloat, 6, -0.05f);
 		Instantiate((Resources.Load("Botella")) as GameObject, pos, Quaternion.identity);
 	}
 	
@@ -41,8 +42,10 @@ public class DestroyOnContact : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
         System.Random random = new System.Random();
-        int randomNumber = random.Next(-1, 4);
-        Vector3 pos = new Vector3(randomNumber, 6, -0.05f);/*
+        int randomNumber = random.Next(-100, 100);
+        float randomNumberFloat = (float)randomNumber * 3 / 100;
+        Vector3 pos = new Vector3(randomNumberFloat, 6, -0.05f);
+        /*
         other.gameObject.transform.position.x = randomNumber;
         other.gameObject.transform.position.y = 6;
         other.gameObject.transform.position.z = -2;*/
