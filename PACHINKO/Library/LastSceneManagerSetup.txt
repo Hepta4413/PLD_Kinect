@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/pachinko1.unity
+- path: D:/vhuguet/Documents/Cours/INSA/4IF/H4413_Git/PLD_Kinect/BreakOutGame/Assets/mainScene.unity
   isLoaded: 1
   isActive: 1

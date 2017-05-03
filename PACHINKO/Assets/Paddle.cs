@@ -24,9 +24,10 @@ public class Paddle : MonoBehaviour {
             Debug.Log(xPos);
             //float xPos = KinectData.mainDX;
 
-            //if (Math.Abs(xPos - oldX) < 30000000)
+            if (Math.Abs(xPos - oldX) < 30)
+            {
                 //transform.position += Vector3.left * speed * Time.deltaTime;
-                transform.position=new Vector3(Mathf.Clamp(xPos, (leftStreetLamp.transform.position.x - leftStreetLamp.transform.localScale.x*1.3f), (rightStreetLamp.transform.position.x + rightStreetLamp.transform.localScale.x*1.3f)),0, 0);
+                transform.position = new Vector3(Mathf.Clamp(xPos, (leftStreetLamp.transform.position.x - leftStreetLamp.transform.localScale.x * 1.3f), (rightStreetLamp.transform.position.x + rightStreetLamp.transform.localScale.x * 1.3f)), -1, 0);
                 oldX = xPos;
             }
             //position = new Vector3(Mathf.Clamp(xPos, -6.1f, 6.1f), -11f, 0);
@@ -35,7 +36,9 @@ public class Paddle : MonoBehaviour {
         }
         else
         {
-
+            float xPos = 0;
+            transform.position = new Vector3(0, -1, 0);
+            oldX = xPos;
         }
        
 	}

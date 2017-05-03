@@ -16,11 +16,11 @@ public class MovingHazards : MonoBehaviour {
 
         transform.position += Vector3.right * speed * Time.deltaTime;
 
-        if (transform.position.x < 1)
+        if (transform.position.x < -1.1f)
         {
             speed = -speed;
         }
-        else if(transform.position.x > 2)
+        else if(transform.position.x > 1.55f)
         {
             speed = -speed;
         }

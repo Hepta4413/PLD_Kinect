@@ -18,3 +18,11 @@ C:\Users\Ludovic\Desktop\PLD_Kinect\kinect\kinect\bin\Debug\kinect.exe.config
 C:\Users\Ludovic\Desktop\PLD_Kinect\kinect\kinect\obj\Debug\kinect.exe
 C:\Users\Ludovic\Desktop\PLD_Kinect\kinect\kinect\obj\Debug\kinect.pdb
 C:\Users\Ludovic\Desktop\PLD_Kinect\kinect\kinect\obj\Debug\kinect.csprojResolveAssemblyReference.cache
+D:\vhuguet\Documents\Cours\INSA\4IF\H4413_Git\PLD_Kinect\kinect\kinect\bin\Debug\kinect.exe.config
+D:\vhuguet\Documents\Cours\INSA\4IF\H4413_Git\PLD_Kinect\kinect\kinect\bin\Debug\kinect.exe
+D:\vhuguet\Documents\Cours\INSA\4IF\H4413_Git\PLD_Kinect\kinect\kinect\bin\Debug\kinect.pdb
+D:\vhuguet\Documents\Cours\INSA\4IF\H4413_Git\PLD_Kinect\kinect\kinect\bin\Debug\Microsoft.Kinect.dll
+D:\vhuguet\Documents\Cours\INSA\4IF\H4413_Git\PLD_Kinect\kinect\kinect\bin\Debug\Microsoft.Kinect.xml
+D:\vhuguet\Documents\Cours\INSA\4IF\H4413_Git\PLD_Kinect\kinect\kinect\obj\Debug\kinect.csprojResolveAssemblyReference.cache
+D:\vhuguet\Documents\Cours\INSA\4IF\H4413_Git\PLD_Kinect\kinect\kinect\obj\Debug\kinect.exe
+D:\vhuguet\Documents\Cours\INSA\4IF\H4413_Git\PLD_Kinect\kinect\kinect\obj\Debug\kinect.pdb

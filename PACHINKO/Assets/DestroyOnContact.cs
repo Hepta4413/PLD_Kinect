@@ -6,8 +6,10 @@ using System;
 public class DestroyOnContact : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
-		Vector3 pos = new Vector3(1, 4, -2);
-		Instantiate((Resources.Load("Sphere")) as GameObject, pos, Quaternion.identity);
+        System.Random random = new System.Random();
+        int randomNumber = random.Next(-1, 4);
+        Vector3 pos = new Vector3(randomNumber, 6, -0.05f);
+		Instantiate((Resources.Load("Botella")) as GameObject, pos, Quaternion.identity);
 	}
 	
 	// Update is called once per frame
@@ -19,7 +21,7 @@ public class DestroyOnContact : MonoBehaviour {
     {
         System.Random random = new System.Random();
         int randomNumber = random.Next(-1, 4);
-        Vector3 pos = new Vector3(randomNumber, 4, -2);/*
+        Vector3 pos = new Vector3(randomNumber, 6, -0.05f);/*
         other.gameObject.transform.position.x = randomNumber;
         other.gameObject.transform.position.y = 6;
         other.gameObject.transform.position.z = -2;*/
@@ -29,7 +31,7 @@ public class DestroyOnContact : MonoBehaviour {
         //other.transform.position = new Vector3(randomNumber, 6, -2);
         //other.transform.
 
-        Instantiate((Resources.Load("Sphere")) as GameObject, pos, Quaternion.identity);
+        Instantiate((Resources.Load("Botella")) as GameObject, pos, Quaternion.identity);
         //other.gameObject.transform.Translate(Vector3.left * 10);
        
     }
