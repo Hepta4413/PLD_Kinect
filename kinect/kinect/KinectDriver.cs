@@ -16,6 +16,8 @@ namespace kinect
         private KinectSensor sensor;
         private Skeleton skeletonTracked;
         private bool envoi = true;
+        private int noTracking = -1;
+        private int nbSkeletons = 0;
 
         public void KinectInit()
         {
@@ -70,17 +72,35 @@ namespace kinect
 
             if (skeletons.Length != 0)
             {
-                //Console.WriteLine(skeletons.Length);
+                bool newSkel = true;
                 foreach (Skeleton skel in skeletons)
                 {
-                    if (skel.TrackingState == SkeletonTrackingState.Tracked)
+                    if (skel.TrackingState == SkeletonTrackingState.Tracked && skel.TrackingId == noTracking)
                     {
+                        newSkel = false;
                         skeletonTracked = skel;
                         String tmp = writeFrame();
                         Console.WriteLine(tmp);
                         //Serveur.WriteInPipe(tmp);
                         Serveur.WriteInFile(tmp);
+                    }
+                }
 
+                if(newSkel)
+                {
+                    foreach (Skeleton skel in skeletons)
+                    {
+                        if (skel.TrackingState == SkeletonTrackingState.Tracked)
+                        {
+                            skeletonTracked = skel;
+                            noTracking = skel.TrackingId;
+                            nbSkeletons++;
+                            String tmp = writeFrame();
+                            Console.WriteLine(tmp);
+                            //Serveur.WriteInPipe(tmp);
+                            Serveur.WriteInFile(tmp);
+                            break;
+                        }
                     }
                 }
             }
