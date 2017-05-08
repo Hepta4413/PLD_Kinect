@@ -12,7 +12,7 @@ public class ClientHub : MonoBehaviour {
     StreamReader reader;
     //public Text Xposition;
     bool update =true;
-    private String pathString = "../Coord.txt";
+    private String pathString = @"..\Coord.txt";
 
     void Awake () {
         DontDestroyOnLoad(this);

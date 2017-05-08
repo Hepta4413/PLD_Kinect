@@ -81,6 +81,7 @@
     <Compile Include="Assets\ClientHub.cs" />
     <Compile Include="Assets\DestroyOnContact.cs" />
     <Compile Include="Assets\KinectData.cs" />
+    <Compile Include="Assets\LockTimer.cs" />
     <Compile Include="Assets\MovingHazards.cs" />
     <Compile Include="Assets\Paddle.cs" />
     <Compile Include="Assets\RotateHazard.cs" />
@@ -88,6 +89,9 @@
     <Compile Include="Assets\WinOnContact.cs" />
     <Compile Include="Assets\move.cs" />
     <Compile Include="Assets\respawn.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Wispy Sky\ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

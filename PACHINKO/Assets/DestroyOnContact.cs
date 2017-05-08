@@ -19,7 +19,7 @@ public class DestroyOnContact : MonoBehaviour {
         System.Random random = new System.Random();
         int randomNumber = random.Next(-100, 100);
         float randomNumberFloat = (float)randomNumber * 3 / 100;
-        Vector3 pos = new Vector3(randomNumberFloat, 6, -0.05f);
+        Vector3 pos = new Vector3(randomNumberFloat, 7.5f, -0.05f);
 		Instantiate((Resources.Load("Botella")) as GameObject, pos, Quaternion.identity);
 	}
 	
@@ -44,7 +44,7 @@ public class DestroyOnContact : MonoBehaviour {
         System.Random random = new System.Random();
         int randomNumber = random.Next(-100, 100);
         float randomNumberFloat = (float)randomNumber * 3 / 100;
-        Vector3 pos = new Vector3(randomNumberFloat, 6, -0.05f);
+        Vector3 pos = new Vector3(randomNumberFloat, 7.5f, -0.05f);
         /*
         other.gameObject.transform.position.x = randomNumber;
         other.gameObject.transform.position.y = 6;

@@ -14,15 +14,19 @@ public class MovingHazards : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        transform.position += Vector3.right * speed * Time.deltaTime;
+        Vector3 futurPosition = transform.position + Vector3.right * speed * Time.deltaTime;
 
-        if (transform.position.x < -1.1f)
+        if (futurPosition.x < -0.8f)
         {
             speed = -speed;
+            futurPosition = transform.position + Vector3.right * speed * Time.deltaTime;
         }
-        else if(transform.position.x > 1.55f)
+        else if(futurPosition.x > 1.35f)
         {
             speed = -speed;
+            futurPosition = transform.position + Vector3.right * speed * Time.deltaTime;
         }
+
+        transform.position = futurPosition;
     }
 }
